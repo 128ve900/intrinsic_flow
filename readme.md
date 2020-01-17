@@ -99,9 +99,13 @@ python scripts/train_pose_transfer_model.py --id id_pose_4 --gpu_ids 4 --dataset
 # full (need a pretrained pose transfer model without pixel warping)
 python scripts/train_pose_transfer_model.py --id id_pose_5 --gpu_ids 5 --dataset_name deepfashion --G_pix_warp 1 --which_model_G dual_unet --pretrained_G_id id_pose_4 --pretrained_G_epoch 8
 
-resume train need add "--resume_train --last_epoch epoch_id --which_epoch epoch_id"
-such as, 
+# ------------------------------------------------ splited line ----------------------------------------------------------------
 
+# my full (need a pretrained pose transfer model without pixel warping)
+python scripts/train_pose_transfer_model.py --id id_pose_5 --gpu_ids 5 --dataset_name deepfashion --G_pix_warp 1 --which_model_G dual_unet --pretrained_G_id PoseTransfer_id_pose_4 --pretrained_G_epoch 5
+
+# resume train need add "--resume_train --last_epoch epoch_id --which_epoch epoch_id"
+such as, 
 # w/o. flow resume training
 python scripts/train_pose_transfer_model.py --id id_pose_2 --gpu_ids 2 --dataset_name deepfashion --which_model_G dual_unet --G_feat_warp 0 --resume_train --last_epoch 9 --which_epoch 9
 ```
